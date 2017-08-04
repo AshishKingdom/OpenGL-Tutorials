@@ -9,6 +9,9 @@
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css">
   </head>
   <body>
     
@@ -49,5 +52,27 @@
         margin: 10px 10px;
       }
     </style>
+    <script>
+      $(document).ready(function() {
+         $("#keyword-info").each(function() {
+            $(this).qtip({
+               title : $(this).attr("keyword-title"),
+               content : $(this).attr("keyword-content"),
+               show : {
+                  effect: function(){
+                    $(this).fadeTo(300,1);
+                  }
+               },
+              hide : {
+                 effect : {
+                    effect: function(){
+                       $(this).fadeTo(300,0);
+                    }
+                 }
+              }
+            });
+         });
+      });
+    </script>
   </body>
 </html>
