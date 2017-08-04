@@ -11,3 +11,6 @@ end if
     A Simple Warning! :)
 </div>
     
+<div class="hint-box">
+    A simple hint. :wow:
+</div>
