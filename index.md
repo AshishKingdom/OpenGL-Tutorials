@@ -14,3 +14,7 @@ end if
 <div class="hint-box">
     A simple hint. :wow:
 </div>
+
+Then Tooltips -
+
+<span keyword-title="\_glClear" keyword-content="_glClear( params )_"></span>
