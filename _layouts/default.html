@@ -60,8 +60,10 @@
       $(document).ready(function() {
          $("#keyword-info").each(function() {
             $(this).qtip({
-               title : $(this).attr("keyword-title"),
-               content : $(this).attr("keyword-content")
+               content : {
+                 text: $(this).attr("keyword-content"),
+                 title : $(this).attr("keyword-title")
+               }
                /*show : {
                   effect: function(){
                     $(this).fadeTo(300,1);
