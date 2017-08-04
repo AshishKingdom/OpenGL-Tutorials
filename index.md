@@ -17,4 +17,4 @@ end if
 
 Then Tooltips -
 
-<span keyword-title="\_glClear" keyword-content="_glClear( params )_"></span>
+<span keyword-title="\_glClear" keyword-content="_glClear( params )_">Hover on Me.</span>
