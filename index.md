@@ -7,7 +7,7 @@ if a = 2 then
 end if
 ```
 
-<div style="background:rgb(255,220,220)">
+<div class="warning-box">
     A Simple Warning! :)
 </div>
     
