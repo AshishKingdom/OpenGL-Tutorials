@@ -1,7 +1,8 @@
 # Welcome to the OpenGL Tutorial.
 A simple code - 
 
-`
-cls
-print 10 'prints 10 on screen.
-`
+```vb
+if a = 2 then
+    print 10 'prints 10 on screen.
+end if
+```
