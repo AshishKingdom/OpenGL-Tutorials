@@ -1,1 +1,6 @@
-/* Nothing Here */
+.warning-box {
+  border: 2px solid #f00;
+  border-radius: 3px;
+  padding: 6px 8px;
+  background: rgb(255,220,220);
+}
