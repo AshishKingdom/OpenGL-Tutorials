@@ -21,6 +21,7 @@ Then Tooltips (attemp #final) -
     <i>glClear(params)</i><br>
     <b>params</b> can be <b>_GL_COLOR_BUFFER_BIT</b> or <b>_GL_DEPTH_BUFFER_BIT</b><br>
     <i>Example - </i>
+    
     ```vb
     _glClear _GL_COLOR_BUFFER_BIT
     ```
