@@ -6,7 +6,7 @@ section.
 
 ## Prerequisites
 Since OpenGL is a graphic API, and doesn't have platform of its own, it requires a language to operate with. Here, we will be using
-[QB64](http://www.qb64.net/). So, if you don't have much experience, I recommend you to learn it from www.qb64sourcecode.com
+[QB64](http://www.qb64.net/). So, if you don't have much experience, I recommend you to learn it from [Qb64 Source Code](http://www.qb64sourcecode.com)
 
 # Site structure
 To make the tutorials easier to follow and give them some added structure the site contains boxes, code blocks and keyword references. 
@@ -30,12 +30,12 @@ You will see plenty of small pieces of code in the site. They are highlighted as
 ## OpenGL Keyword References
 You can hover on the OpenGL keywords to see information and syntax about it.
 For example, try to hover on this - 
-<code id="keyword-info" keyword-title="_glClear">
+<div id="keyword-info" keyword-title="_glClear">
    _glClear clear buffers to preset values. <br>
   <i>Syntax - </i><br>
   <i>_glClear mask</i>
-  The parameters of _glClear are as follows - 
+  The parameters of _glClear are as follows - <br>
   <ul>
     <li>mask : can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i></li>
   </ul>
-</code>
+</div>
