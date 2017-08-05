@@ -1,15 +1,15 @@
 # Introduction
 
 Welcome to OpenGL Tutorials. I've tried to explain everything as clearly as I can. My aim is to teach you the basic of OpenGL
-with clear examples. At the end of the each section, there is a **exercise** which you should solve before continuing to next
+with clear examples. At the end of the each section, there is an **exercise** which you should solve before continuing to next
 section.
 
 ## Prerequisites
-Since OpenGL is a graphic API, and doesn't have platform of its own, it requires a language to operate with. Here, we will be using
+Since OpenGL is a graphic API, and doesn't have a platform of its own, it requires a language to operate with. Here, we will be using
 [QB64](http://www.qb64.net/). So, if you don't have much experience, I recommend you to learn it from [Qb64 Source Code](http://www.qb64sourcecode.com)
 
 # Site structure
-To make the tutorials easier to follow and give them some added structure the site contains boxes, code blocks and keyword references. 
+To make the tutorials easier to follow and give them some added structure, the site contains boxes, code blocks and keyword references. 
 
 ## Boxes
 <div class="hint-box">
@@ -20,7 +20,7 @@ To make the tutorials easier to follow and give them some added structure the si
 </div>
 
 ## Code
-You will see plenty of small pieces of code in the site. They are highlighted as light grey as -
+You will see plenty of small pieces of code on the site. They are highlighted in light gray as -
 
 ```vb
 'A of the code
