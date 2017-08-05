@@ -33,7 +33,7 @@ For example, try to hover on this -
 <span id="keyword-info" keyword-title="_glClear">
    _glClear clear buffers to preset values. <br>
   <i>Syntax - </i><br>
-  <i>_glClear mask</i>
+  <i>_glClear mask</i><br>
   The parameters of _glClear are as follows - <br>
   <ul>
     <li>mask : can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i></li>
