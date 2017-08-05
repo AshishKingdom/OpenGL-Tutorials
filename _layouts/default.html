@@ -58,7 +58,14 @@
     </style>
     <script>
       $(document).ready(function() {
-        alert('It works!');
+         $("#keyword-info").each(function() {
+            $(this).qtip({
+               content : {
+                  text : $(this).attr("keyword-content"),
+                  title : $(this).attr("keyword-title")
+               }
+            });
+         });
       });
     </script>
   </body>
