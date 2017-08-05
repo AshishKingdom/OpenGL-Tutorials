@@ -61,10 +61,15 @@
          $("#keyword-info").each(function() {
             $(this).qtip({
                content : {
-                  text : $(this).attr("keyword-content"),
+                  text : $(this).html(),
                   title : $(this).attr("keyword-title")
-               }
+               },
+              position : {
+                 target : 'mouse',
+                 adjust : {x : 15, y : 5}
+              }
             });
+           $(this).html($(this).attr("keyword-title));
          });
       });
     </script>
