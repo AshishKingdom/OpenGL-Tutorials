@@ -52,18 +52,19 @@
         margin: 10px 10px;
       }
       #keyword-info {
-         cursor: hand;
+         cursor: pointer;
          color : rgb(200,0,200);
       }
     </style>
     <script>
       $(document).ready(function() {
-         $("#keyword-info").each(function() {
+         $("#keyword-info").qtip({content:'It works! :)'});
+         /*$("#keyword-info").each(function() {
             $(this).qtip({
                content : {
                  text: $(this).attr("keyword-content"),
                  title : $(this).attr("keyword-title")
-               }
+               }*/
                /*show : {
                   effect: function(){
                     $(this).fadeTo(300,1);
