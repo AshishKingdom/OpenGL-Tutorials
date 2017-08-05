@@ -17,5 +17,5 @@ end if
 
 Then Tooltips (attemp #final) -
 
-`<span id="keyword-info" keyword-title="glClear">Hover on Me.</span>`
+<code id="keyword-info" keyword-title="glClear">Hover on Me.</code>`
  
