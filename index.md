@@ -15,6 +15,6 @@ end if
     A simple hint. :wow:
 </div>
 
-Then Tooltips (attemp #9) -
+Then Tooltips (attemp #final) -
 
-<span id="keyword-info" keyword-title="glClear" keyword-content="glClear( params )">Hover on Me.</span>
+<span id="keyword-info" keyword-title="glClear">Hover on Me.</span>
