@@ -15,7 +15,7 @@ To make the tutorials easier to follow and give them some added structure the si
 <div class="hint-box">
   <b>Green Boxes</b> contain some note or useful feature/hints about the OpenGL.
 </div>
-<div>
+<div class="warning-box">
   <b>Red Boxes</b> contain warnings.
 </div>
 
@@ -38,4 +38,4 @@ For example, try to hover on this -
   <ul>
     <li>mask : can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i></li>
   </ul>
-</code
+</code>
