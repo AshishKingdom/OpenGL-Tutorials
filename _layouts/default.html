@@ -56,6 +56,21 @@
          color: crimson;
          font-size: 0.9rem;
       }
+      #top-button {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         background: #167AC6;
+         z-index: 99;
+         box-shadow: 10px 10px 10px rgb(100,100,100);
+         color: #fff;
+         transition: all 0.2s ease-in-out;
+         border: none;
+         padding: 4px 4px;
+      }
+      #top-button:hover {
+         background: #012B72;
+      }
     </style>
     <script>
       $(document).ready(function() {
@@ -75,5 +90,7 @@
          });
       });
     </script>
+    <!-- Go to top button -->
+    <button id="top-button">Top</button>
   </body>
 </html>
