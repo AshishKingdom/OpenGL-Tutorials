@@ -34,11 +34,7 @@ That's it. It will currently not affect our output with previous one.
 
 ## Coloring the background (OpenGL CLS)
 Currently, This window is boring to see. Let's do some fancy by adding some OpenGL commands.
-We'll be changing the color of the background by using <span id="keyword-info" keyword-title="_glClear">   _glClear clear buffers to preset values. <br><br>
-  <i>Syntax - </i><br><br>
-  <i>_glClear mask</i><br><br>
-  mask: can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i>.<br>
-</span>. To set the color for <span id="keyword-info" keyword-title="_glClear">   _glClear clear buffers to preset values. <br><br>
+We'll be changing the color of the background by using \_gLClear. To set the color for <span id="keyword-info" keyword-title="_glClear">   _glClear clear buffers to preset values. <br><br>
   <i>Syntax - </i><br><br>
   <i>_glClear mask</i><br><br>
   mask: can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i>.<br>
