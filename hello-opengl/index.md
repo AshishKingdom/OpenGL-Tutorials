@@ -42,7 +42,10 @@ We'll be changing the color of the background by using <span id="keyword-info" k
   <i>Syntax - </i><br><br>
   <i>_glClear mask</i><br><br>
   mask: can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i>.<br>
-</span> by <span id="keyword-info" keyword-title="_glClearColor">   _glClearColor specifies the color for _glClear <br><br>
+</span>.
+by 
+<span id="keyword-info" keyword-title="_glClearColor">
+  _glClearColor specifies the color for _glClear <br><br>
   <i>Syntax - </i><br><br>
   <i>_glClearColor red, green, blue, alpha</i><br><br>
   red: Value of red ranging between 0-1.<br>
