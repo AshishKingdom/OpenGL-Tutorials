@@ -18,6 +18,6 @@ This is will produce the following result -
 
 ![OpenGL First Window Created](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/hello-opengl/first_window.png)
 
-<div id="hint-box">
+<div class="hint-box">
 It's good idea to add frame limit by using <b>_LIMIT</b> to prevent high cpu usage.
 </div>
