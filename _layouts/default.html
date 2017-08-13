@@ -58,15 +58,16 @@
       }
       #top-button {
          position: fixed;
-         bottom: 20px;
-         right: 20px;
+         bottom: 40px;
+         right: 40px;
          background: #167AC6;
          z-index: 99;
-         box-shadow: 10px 10px 10px rgb(100,100,100);
+         box-shadow: 7px 7px 20px rgb(100,100,100), -7px -7px 20px rgb(100,100,100);
          color: #fff;
          transition: all 0.2s ease-in-out;
          border: none;
-         padding: 4px 4px;
+         padding: 10px 10px;
+         border-radius: 6px;
       }
       #top-button:hover {
          background: #012B72;
@@ -87,10 +88,23 @@
             });
            $(this).html($(this).attr("keyword-title"));
            //$(this).addClass('highlighter-rouge');
+           //Go to top button
+           $("#top-button").click(function() {
+              $("body,html").animate({
+                 scrollTop: 0
+              }, 500)
+           });
          });
+      });
+      $(window).scroll(function() {
+         if($(this).scrollTop() > 50) {
+            $("#top-button").show(200);
+         } else {
+            $("#top-button").hide(200);
+         }
       });
     </script>
     <!-- Go to top button -->
-    <button id="top-button">Top</button>
+    <button id="top-button"><b>Top</b></button>
   </body>
 </html>
