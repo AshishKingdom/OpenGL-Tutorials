@@ -37,6 +37,7 @@
       </script>
     {% endif %}
     <style>
+      /* Coded By Ashish */
       .warning-box {
         border: 2px solid #E0B3B3;
         border-radius: 6px;
@@ -68,12 +69,14 @@
          border: none;
          padding: 10px 10px;
          border-radius: 6px;
+         display: none;
       }
       #top-button:hover {
          background: #012B72;
       }
     </style>
     <script>
+      //coded By Ashish
       $(document).ready(function() {
          $("#keyword-info").each(function() {
             $(this).qtip({
@@ -98,9 +101,9 @@
       });
       $(window).scroll(function() {
          if($(this).scrollTop() > 50) {
-            $("#top-button").show(200);
+            $("#top-button").fadeIn();
          } else {
-            $("#top-button").hide(200);
+            $("#top-button").fadeOut();
          }
       });
     </script>
