@@ -84,7 +84,9 @@
             }, 500)
          });
         //Keyword tooltips
+        console.log("**Staring to create tooltips**");
         var keywordObjs = $("#keyword-info");
+        console.log("Total Objects found : "+keywordObjs.length);
         for(i=0;i<keywordObjs.length;i++) {
             $(keywordObjs[i]).qtip({
                 content: {
@@ -100,6 +102,7 @@
             console.log("Object found : "+i);
         }
       });
+      console.log("**Finished Adding Tooltips**");
       $(window).scroll(function() {
          if($(this).scrollTop() > 50) {
             $("#top-button").fadeIn();
