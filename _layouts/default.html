@@ -87,7 +87,7 @@
         console.log("**Staring to create tooltips**");
         var keywordObjs = $("#keyword-info");
         console.log("Total Objects found : "+keywordObjs.length);
-        for(i=0;i<keywordObjs.length;i++) {
+        for(i=0;i<=keywordObjs.length;i++) {
             $(keywordObjs[i]).qtip({
                 content: {
                     text: $(keywordObjs[i]).html(),
