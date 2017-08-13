@@ -85,7 +85,21 @@
          });
         //Keyword tooltips
         console.log("**Staring to create tooltips**");
-        var keywordObjs = $("#keyword-info");
+        $("#keyword-info").each(function() {
+            $(this).qtip({
+                content: {
+                    text: $(this).html(),
+                    title: $(this).attr("keword-title");
+                },
+                position: {
+                    target: 'mouse',
+                    adjust: {x: 15, y:5}
+                }
+            });
+            console.log("Keyword Object found : "+i);
+        });
+        console.log("**Finished adding toolips to keywords object**");
+        /*var keywordObjs = $("#keyword-info");
         console.log("Total Objects found : "+keywordObjs.length);
         for(i=0;i<=keywordObjs.length;i++) {
             $(keywordObjs[i]).qtip({
@@ -101,8 +115,7 @@
             $(keywordObjs[i]).html($(keywordObjs[i]).attr("keyword-title"));
             console.log("Object found : "+i);
         }
-      });
-      console.log("**Finished Adding Tooltips**");
+      });*/
       $(window).scroll(function() {
          if($(this).scrollTop() > 50) {
             $("#top-button").fadeIn();
