@@ -27,12 +27,3 @@ You will see plenty of small pieces of code on the site. They are highlighted in
 'Another line of code
 ```
 
-## OpenGL Keyword References
-You can hover on the OpenGL keywords to see information and syntax about it.
-For example, try to hover on this - 
-<span id="keyword-info" keyword-title="_glClear">
-   _glClear clear buffers to preset values. <br><br>
-  <i>Syntax - </i><br><br>
-  <i>_glClear mask</i><br><br>
-  mask: can be <i>_GL_COLOR_BUFFER_BIT</i> or <i>_GL_DEPTH_BUFFER_BIT</i>.<br>
-</span>
