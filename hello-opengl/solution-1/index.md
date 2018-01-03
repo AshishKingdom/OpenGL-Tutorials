@@ -9,6 +9,8 @@ LOOP
 
 SUB _GL ()
     'Here we'll put our OpenGL commands!
+    _glViewPort 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+    
     _glClearColor 0.5, 0, 0.5, 1 'I've just change the value here to achieve purple color
     _glClear _GL_COLOR_BUFFER_BIT
 END SUB
