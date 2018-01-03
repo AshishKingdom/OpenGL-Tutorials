@@ -8,7 +8,7 @@ DIM temp AS SINGLE 'we will use this with SIN() to get a oscillating value betwe
 DO
     greenValue = ABS(SIN(temp)) 'we are using ABS() to prevent negative values.
     _LIMIT 40 'Adding this will prevent high cpu usage.
-    temp = temp + .05 'It must increased a bit in every loop, otherwise, SIN() will return same value again & again.
+    temp = temp + 0.05 'It must increased a bit in every loop, otherwise, SIN() will return same value again & again.
 LOOP
 
 SUB _GL ()
