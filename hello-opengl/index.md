@@ -69,7 +69,7 @@ You can also set the color value that OpenGL will use for clearing the color buf
 **redValue**, **greenValue**, **blueValue** and **alphaValue** are just red, green, blue and alpha component of a color, just like we have with `_RGBA()`. They all should be between 0-1.
 
 <div class="hint-box">
-    The <b>value</b> of red, green, blue and alpha in <b>glClearColor</b> should be between 0-1, just like we 0-255 for <b>_RGB()</b> and <b>_RGBA()</b>. For example, <b>_RGBA(255, 255, 0, 255</b> and <b>_glClearColor 1, 1, 0, 1</b> both refers to color yellow.
+    The <b>value</b> of red, green, blue and alpha in <b>glClearColor</b> should be between 0-1, just like we 0-255 for <b>_RGB()</b> and <b>_RGBA()</b>. For example, <b>_RGBA(255, 255, 0, 255)</b> and <b>_glClearColor 1, 1, 0, 1</b> both refers to color yellow.
 </div>
 
 
