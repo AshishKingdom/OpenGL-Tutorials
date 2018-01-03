@@ -66,7 +66,12 @@ We'll be changing the color of the background by using `glClear()`. The syntax f
 - **mask** : You can give this value of **GL_COLOR_BUFFER_BIT**,**GL_DEPTH_BUFFER_BIT** or **GL_STENCIL_BUFFER_BIT** for clearing color buffer, depth buffer or stencil buffer.
 
 You can also set the color value that OpenGL will use for clearing the color buffer by `glClearColor()`. The syntax for this is `glClearColor(redValue, greenValue, blueValue, alphaValue)`.
-**redValue**, **greenValue**, **blueValue** and **alphaValue** are just red, green, blue and alpha component of a color, just like we have with `_RGBA()`. They all should be between 0-1. Just like we have 0-255 for `_RGB()` and `_RGBA()`.
+**redValue**, **greenValue**, **blueValue** and **alphaValue** are just red, green, blue and alpha component of a color, just like we have with `_RGBA()`. They all should be between 0-1.
+
+<div class="hint-box">
+    The <b>value</b> of red, green, blue and alpha in <b>glClearColor</b> should be between 0-1, just like we 0-255 for <b>_RGB()</b> and <b>_RGBA()</b>. For example, <b>_RGBA(255, 255, 0, 255</b> and <b>_glClearColor 1, 1, 0, 1</b> both refers to color yellow.
+</div>
+
 
 Now, we'll use these two OpenGL commands in our previous code
 ```vb
