@@ -35,6 +35,29 @@ SUB _GL ()
 END SUB
 ```
 That's it. It will currently not affect our output with previous one.
+## Viewport
+Now, we have to tell OpenGL the size of rendering window. We'll use `glViewPort()` for this. The syntax for this is
+`glViewPort(x, y, width, height)`. Where 
+- **x** is the location of left x-coordinate of the rectangle.
+- **y** is the location of bottom y-coordinate of the rectangle.
+- **width** is width of the viewport. (or Actually window width)
+- **height** is the height of the viewport. (or Actually window height)
+Using `glViewPort`, we tell OpenGL how to map the normalized device coordinates (between -1 to 1) to window coordinates (as we specify in it).
+
+```vb
+_TITLE "Learning OpenGL" 'giving title to your window
+SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
+
+'This is our main loop
+DO
+    _LIMIT 40 'Adding this will prevent high cpu usage.
+LOOP
+
+SUB _GL ()
+    'Here we'll put our OpenGL commands!
+    _glViewPort 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+END SUB
+```
 
 ## Coloring the background (OpenGL CLS)
 Currently, This window is boring to see. Let's do some fancy by adding some OpenGL commands.
@@ -57,6 +80,8 @@ LOOP
 
 SUB _GL ()
     'Here we'll put our OpenGL commands!
+    _glViewPort 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+    
     _glClearColor 1, 0.5, 0, 1
     _glClear _GL_COLOR_BUFFER_BIT
 END SUB
