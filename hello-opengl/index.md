@@ -57,10 +57,15 @@ LOOP
 
 SUB _GL ()
     'Here we'll put our OpenGL commands!
-    _glClearColor 1, .5, 0, 1
+    _glClearColor 1, 0.5, 0, 1
     _glClear _GL_COLOR_BUFFER_BIT
 END SUB
 ```
 This will produce the following output -
 
 ![Yellow colored window with glClear()](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/hello-opengl/window_after_glClear.png)
+
+## Exercise
+That's all in this section. Before continuing to next section, I recommend you to go throught the exercises & solve them.
+1. Try to change the background color to purple. [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/hello-opengl/solution-1/)
+2. Try to fade the background color between black and green. [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/hello-opengl/solution-2/)
