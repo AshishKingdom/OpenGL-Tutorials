@@ -13,6 +13,8 @@ LOOP
 
 SUB _GL ()
     'Here we'll put our OpenGL commands!
+    _glViewPort 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+    
     _glClearColor 0, greenValue, 0, 1
     _glClear _GL_COLOR_BUFFER_BIT
 END SUB
