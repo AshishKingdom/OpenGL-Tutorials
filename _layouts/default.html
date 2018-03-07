@@ -87,13 +87,13 @@
         box-shadow: 7px 7px 20px rgb(100,100,100), -7px -7px 20px rgb(100,100,100);
         color: #fff;
         margin: 10px 10px;
-        background:rgb(10,200,0);
+        background:#26cc29;
         padding: 10px 10px;
         border-radius:6px;
         transition: all 0.2s ease-in-out;
       }
       #navigation-button:hover {
-        background(0,100,0);
+        background:#077709;
       }
       #top-button:hover {
          background: #012B72;
@@ -102,7 +102,21 @@
     <script>
       //coded By Ashish
       
-     
+     var contentList = ["https://ashishkingdom.github.io/OpenGL-Tutorials/intro/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/hello-opengl/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/2d-shapes/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/colors/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/textures/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/transformation/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/going-3d/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/3d-shapes/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/camera/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/lights/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/materials/
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/advance-opengl/",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/about-me.",
+                       ];
       $(document).ready(function() {
          $("#top-button").click(function() {
             $("body,html").animate({
@@ -112,6 +126,18 @@
         if(window.location != "https://ashishkingdom.github.io/OpenGL-Tutorials/") {
           $("#navigation-area").fadeIn();
         }
+        if(window.location == contentList[0])$(".pre_btn").attr("display","none");
+        if(window.location == contentList[13])$(".nxt_btn").attr("display","none");
+        $(".pre_btn").click(function() {
+            for(var i=0;i<13;i++){
+              if(window.location == contentList[i])window.location=contentList[i-1];
+            }
+          });
+        $(".nxt_btn").click(function() {
+          for(var i=0;i<13;i++){
+            if(window.location ==  contentList[i])window.location=contentList[i+1];
+          }
+        });
       });
       $(window).scroll(function() {
          if($(this).scrollTop() > 50) {
@@ -125,8 +151,8 @@
     <button id="top-button"><b>Top</b></button>
     <div id="navigation-area">
       <a href="https://ashishkingdom.github.io/OpenGL-Tutorials/"><button id="navigation-button">Home</button></a>
-      <button id="navigation-button"><< Previous</button>
-      <button id="navigation-button">Next >></button>
+      <button id="navigation-button" class="pre_btn"><< Previous</button>
+      <button id="navigation-button" class="nxt_btn">Next >></button>
     </div>
   </body>
 </html>
