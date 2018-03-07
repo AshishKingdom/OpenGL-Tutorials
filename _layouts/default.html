@@ -75,6 +75,20 @@
          border-radius: 6px;
          display: none;
       }
+      #navigation-area {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index:99;
+      }
+      #navigation-button {
+        border: none;
+        box-shadow: 7px 7px 20px rgb(100,100,100), -7px -7px 20px rgb(100,100,100);
+        color: #fff;
+        background:rgb(10,150,0);
+        padding: 10px 10px;
+        border-radius:6px;
+      }
       #top-button:hover {
          background: #012B72;
       }
@@ -135,5 +149,10 @@
     </script>
     <!-- Go to top button -->
     <button id="top-button"><b>Top</b></button>
+    <div id="navigation-area">
+      <a href="https://ashishkingdom.github.io/OpenGL-Tutorials/"><button id="navigation-button">Home</button></a>
+      <button id="navigation-button"><< Previous</button>
+      <button id="navigation-button">Next >></button>
+    </div>
   </body>
 </html>
