@@ -80,14 +80,20 @@
         bottom: 20px;
         left: 20px;
         z-index:99;
+        display:none;
       }
       #navigation-button {
         border: none;
         box-shadow: 7px 7px 20px rgb(100,100,100), -7px -7px 20px rgb(100,100,100);
         color: #fff;
-        background:rgb(10,150,0);
+        margin: 10px 10px;
+        background:rgb(10,200,0);
         padding: 10px 10px;
         border-radius:6px;
+        transition: all 0.2s ease-in-out;
+      }
+      #navigation-button:hover {
+        background(0,100,0);
       }
       #top-button:hover {
          background: #012B72;
@@ -103,42 +109,10 @@
                scrollTop: 0
             }, 500)
          });
-      });
-         /*
-        //Keyword tooltips
-        console.log("**Staring to create tooltips**");
-        $("#keyword-info").each(function() {
-            $(this).qtip({
-                content: {
-                    text: $(this).html(),
-                    title: $(this).attr("keword-title")
-                },
-                position: {
-                    target: 'mouse',
-                    adjust: {x: 15, y:5}
-                }
-            });
-            console.log("Keyword Object found : "+i);
-        });
-        console.log("**Finished adding toolips to keywords object**");
-      });
-      var keywordObjs = $("#keyword-info");
-        console.log("Total Objects found : "+keywordObjs.length);
-        for(i=0;i<=keywordObjs.length;i++) {
-            $(keywordObjs[i]).qtip({
-                content: {
-                    text: $(keywordObjs[i]).html(),
-                    title: $(keywordObjs[i]).attr("keyword-title")
-                },
-                position: {
-                    target: 'mouse',
-                    adjust: {x: 15, y:5}
-                }
-            });
-            $(keywordObjs[i]).html($(keywordObjs[i]).attr("keyword-title"));
-            console.log("Object found : "+i);
+        if(window.location != "https://ashishkingdom.github.io/OpenGL-Tutorials/") {
+          $("#navigation-area).fadeIn();
         }
-      });*/
+      });
       $(window).scroll(function() {
          if($(this).scrollTop() > 50) {
             $("#top-button").fadeIn();
