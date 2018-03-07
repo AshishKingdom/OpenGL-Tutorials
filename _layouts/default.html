@@ -92,6 +92,9 @@
         border-radius:6px;
         transition: all 0.2s ease-in-out;
       }
+      .pre_btn, .nxt_btn {
+        display:none;
+      }
       #navigation-button:hover {
         background:#077709;
       }
@@ -126,8 +129,8 @@
         if(window.location != "https://ashishkingdom.github.io/OpenGL-Tutorials/") {
           $("#navigation-area").fadeIn();
         }
-        if(window.location == contentList[0])$(".pre_btn").attr("display","none");
-        if(window.location == contentList[13])$(".nxt_btn").attr("display","none");
+        if(window.location != contentList[0])$(".pre_btn").fadeIn();
+        if(window.location != contentList[13])$(".nxt_btn").fadeIn();
         $(".pre_btn").click(function() {
             for(var i=0;i<13;i++){
               if(window.location == contentList[i])window.location=contentList[i-1];
