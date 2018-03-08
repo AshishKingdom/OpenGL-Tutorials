@@ -95,6 +95,11 @@ This will produce the following output -
 
 ![Yellow colored window with glClear()](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/hello-opengl/window_after_glClear.png)
 
+## Keywords you have learned about
+- \_glViewPort()
+- \_glClearColor()
+- \_glClear()
+
 ## Exercise
 That's all in this section. Before continuing to next section, I recommend you to go throught the exercises & solve them.
 1. Try to change the background color to purple. [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/hello-opengl/solution-1/)
