@@ -127,6 +127,9 @@ And our output will look like this -
 
 ![Orange Triangle in OpenGL Window](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/first-triangle/orange_triangle_window.png)
 
+
+**Before continuing, I would recommend you to go through the exercises, solve them and test your skills!**
+
 ***
 # Keywords you have learned about -
 - \_glBegin()
@@ -137,5 +140,20 @@ And our output will look like this -
 
 ***
 # Exercise
-_This page is in development.
-Keep coming, you might eventually see something new!_
+1. Modify the code to draw the following figure -
+
+![4 Triangles](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/first-triangle/exercise_1.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/solution-1/)
+
+2. Modify the code to draw the following figure -
+
+![Square](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/first-triangle/exercise_2.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/solution-2/)
+
+3. Modify the code to draw the following figure -
+
+![Triangles Inside Triangles](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/first-triangle/exercise_3.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/solution-3/)
