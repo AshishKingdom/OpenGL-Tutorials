@@ -1,4 +1,5 @@
 # Hello OpenGL
+***
 ## Creating Window
 To setup our OpenGL to work, we'll need to create a window. Every OpenGL program should have main loop (So that OpenGL rendering occurs). So, after creating
 our window, we'll add a main loop.
@@ -19,6 +20,8 @@ This is will produce the following result -
 It's a good idea to add frame limit by using <b>_LIMIT</b> to prevent high cpu usage.
 </div>
 
+***
+
 ## Adding OpenGL Subroutine
 To use OpenGL keywords and other commands, we need to add a subroutine named **\_GL**. QB64 automatically detects this special subroutine and allows us to use OpenGL commands in it.
 ```vb
@@ -35,6 +38,9 @@ SUB _GL ()
 END SUB
 ```
 That's it. It will currently not affect our output with previous one.
+
+***
+
 ## Viewport
 Now, we have to tell OpenGL the size of rendering window. We'll use `glViewPort()` for this. The syntax for this is
 `glViewPort(x, y, width, height)`. Where 
@@ -58,6 +64,8 @@ SUB _GL ()
     _glViewPort 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
 END SUB
 ```
+
+***
 
 ## Coloring the background (OpenGL CLS)
 Currently, This window is boring to see. Let's do some fancy by adding some OpenGL commands.
@@ -95,10 +103,14 @@ This will produce the following output -
 
 ![Yellow colored window with glClear()](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/hello-opengl/window_after_glClear.png)
 
+***
+
 ## Keywords you have learned about
 - \_glViewPort()
 - \_glClearColor()
 - \_glClear()
+
+***
 
 ## Exercise
 That's all in this section. Before continuing to next section, I recommend you to go throught the exercises & solve them.
