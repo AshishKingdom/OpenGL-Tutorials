@@ -42,11 +42,8 @@ END SUB
 
 ![GL_POINTS](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_POINTS.png)
 
-<div id="hint-box">
-  You can make the points to appear bigger with the help of `_glPointSize()`. It syntax is -
-  `_glPointSize( size )`
-  
-  - size : It specifies the size of the point, can take value of 1,4,10,etc.
+<div class="hint-box">
+    You can make the points to appear bigger with the help of <b>_glPointSize()</b>. It syntax is -<br><b>_glPointSize( size )</b> where <b>size</b> is the size of the point and it can take value such as 1,2,10,25.4,etc
 </div>
   
 
