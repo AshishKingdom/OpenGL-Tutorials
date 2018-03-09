@@ -26,6 +26,8 @@ SUB _GL ()
     _glVertex2f .5, .5
     _glVertex2f .5, -.5
     _glEnd
+    
+    _glFlush
 END SUB
 
 
