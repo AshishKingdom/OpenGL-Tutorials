@@ -119,6 +119,7 @@ SUB _GL ()
     _glVertex2f 1, -1
     _glEnd
 
+    _glFlush
 END SUB
 
 ```
