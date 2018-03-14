@@ -156,7 +156,7 @@ It will produce the following result -
 
 <div class="hint-box">
     You can also increase the width of the line using <b>_glLineWidth()</b> just like <b>_glPointSize()</b>
-    It has only arguement for the width of the line. For example - <b>_glLineWidth 3.0</b>
+    It has only one arguement for the width of the line. For example - <b>_glLineWidth 3.0</b>
 </div>
     
 
