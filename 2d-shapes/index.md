@@ -46,6 +46,8 @@ END SUB
     You can make the points to appear bigger with the help of <b>_glPointSize()</b>. It syntax is -<br><b>_glPointSize( size )</b> where <b>size</b> is the size of the point and it can take value such as 1,2,10,25.4,etc
 </div>
 
+***
+
 # \_GL_LINES
 
 In **\_GL_LINES** mode, the two vertices are connected to form a line. 
@@ -84,6 +86,8 @@ END SUB
 It will produce the following output -
 
 ![GL_LINES](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_LINES.png)
+
+***
 
 # \_GL_LINE_STRIP
 
@@ -125,6 +129,38 @@ This is will produce the following result -
 
 ![GL_LINE_STRIP](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_LINE_STRIP.png)
 
+***
+
+# \_GL_LINE_LOOP
+
+**\_GL_LINE_LOOP** is similar to **\_GL_LINE_STRIP**. It joins the previous vertex with current vertex and automatically joins
+the last vertex to the first vertex in order to form a loop.
+Example -
+
+```vb
+...
+    _glColor3f 1, 1, 1
+
+    _glBegin _GL_LINE_LOOP
+    _glVertex2f -0.5, 0.5
+    _glVertex2f 0.5, 0.5
+    _glVertex2f 0.5, -0.5
+    _glVertex2f -0.5, -0.5
+    _glEnd
+...
+```
+
+It will produce the following result -
+
+![GL_LINE_LOOP](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_LINE_LOOP.png)
+
+<div class="hint-box">
+    You can also increase the width of the line using <b>_glLineWidth()</b> just like <b>_glPointSize()</b>
+    It has only arguement for the width of the line. For example - <b>_glLineWidth 3.0</b>
+</div>
+    
+
+***
 
 # \_GL_TRIANGLES
 As you know, we have already played with `_GL_TRIANGLES`. In **\_GL_TRIANGLES** mode, the three vertices get connected
@@ -132,6 +168,8 @@ to form a color filled triangle. If you replace the previous code with **\_GL_TR
 following result -
 
 ![GL_TRIANGLES](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_TRIANGLES.png)
+
+***
 
 # \_GL_TRIANGLE_STRIP
 In **\_GL_TRIANGLE_STRIP** mode, the current vertex gets connected with previous 2 vertex to form a triangle. Just like as shown
@@ -158,7 +196,7 @@ I've replace the **\_GL_LINE_STRIP** with **\_GL_TRIANGLE_STRIP** from my previo
 
 And, we will have the following result -
 
-![GL_TRIANGLE_STRIP](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_TRIANGLE_STRIP.png)
+![GL_TRIANGLE_STRIP](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_TRIANGLES_STRIP.png)
 
 
 
