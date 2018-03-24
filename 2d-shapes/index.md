@@ -158,7 +158,46 @@ It will produce the following result -
     You can also increase the width of the line using <b>_glLineWidth()</b> just like <b>_glPointSize()</b>
     It has only one arguement for the width of the line. For example - <b>_glLineWidth 3.0</b>
 </div>
-    
+
+
+## Drawing Circle with \_GL_LINE_LOOP
+We can use **\_GL_LINE_LOOP** to draw circle. According to polar coordinate, x = cos(phi)r and y = sin(phi)r where 0>=phi>=2pi
+Here's an example which draw a circle using **\_GL_LINE_LOOP**
+
+```vb
+_TITLE "Learning OpenGL" 'giving title to your window
+SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
+
+'This is our main loop
+DO
+    _LIMIT 40 'Adding this will prevent high cpu usage.
+LOOP
+
+SUB _GL ()
+    'Here we'll put our OpenGL commands!
+
+    _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+    '_glClearColor 1, .5, 0, 1
+    _glClear _GL_COLOR_BUFFER_BIT
+
+
+    _glColor3f 1, 1, 1
+
+    r = .5
+    _glBegin _GL_LINE_LOOP
+    FOR i = 0 TO _PI(2) STEP .05
+        _glVertex2f COS(i) * r, SIN(i) * r
+    NEXT
+    _glEnd
+
+    _glFlush
+END SUB
+
+```
+
+This will produce the following result -
+
+![Circle with GL_LINE_LOOP](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/Circle_With_GL_LINE_LOOP.png)
 
 ***
 
@@ -177,28 +216,96 @@ in the figure below -
 
 ![GL_TRIANGLE_STRIP_Diagram](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/diagram-1.png)
 
-I've replace the **\_GL_LINE_STRIP** with **\_GL_TRIANGLE_STRIP** from my previous code -
+Here's an example -
 
 ```vb
-    ...
-    
+_TITLE "Learning OpenGL" 'giving title to your window
+SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
+
+'This is our main loop
+DO
+    _LIMIT 40 'Adding this will prevent high cpu usage.
+LOOP
+
+SUB _GL ()
+    'Here we'll put our OpenGL commands!
+
+    _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+    '_glClearColor 1, .5, 0, 1
+    _glClear _GL_COLOR_BUFFER_BIT
+
+
     _glColor3f 1, 1, 1
 
     _glBegin _GL_TRIANGLE_STRIP
     _glVertex2f -0.5, 0.5
     _glVertex2f 0.5, 0.5
-    _glVertex2f 0.5, -0.5
     _glVertex2f -0.5, -0.5
+    _glVertex2f 0.5, -0.5
     _glEnd
-    
-    ...
+
+    _glFlush
+END SUB
+
+
 ```
 
 And, we will have the following result -
 
 ![GL_TRIANGLE_STRIP](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_TRIANGLES_STRIP.png)
 
+***
 
+# \_GL_TRIANGLE_FAN
+In **\_GL_TRIANGLE_FAN** mode, OpenGL draw a connected group of triangles from a origin which is (0,0,0) by default.
+We will learn how to change this origin soon in higher section. The picture below explain how the vertices are treated in
+**\_GL_TRIANGLE_FAN** mode -
+
+![Working of GL_TRIANGLE_FAN](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/diagram-2.png)
+
+Here's an example to draw a pentagon using **\_GL_TRIANGLE_FAN** -
+
+```vb
+_TITLE "Learning OpenGL" 'giving title to your window
+SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
+
+'This is our main loop
+DO
+    _LIMIT 40 'Adding this will prevent high cpu usage.
+LOOP
+
+SUB _GL ()
+    'Here we'll put our OpenGL commands!
+
+    _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+    '_glClearColor 1, .5, 0, 1
+    _glClear _GL_COLOR_BUFFER_BIT
+
+
+    _glColor3f 1, 1, 1
+
+    'using GL_TRIANGLE_FAN to draw a pentagon
+    N = 5 'No. of sides, try to increase its value to 6,7,10,etc
+    _glBegin _GL_TRIANGLE_FAN
+    FOR i = 0 TO _PI(2) STEP _PI(2) / N
+        _glVertex2f COS(i) * .5, SIN(i) * .5
+    NEXT
+    _glEnd
+
+    _glFlush
+END SUB
+
+```
+
+This is produce the following result -
+
+![Pentagon_Using_GL_TRIANGLE_FAN](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/2d-shapes/_GL_TRIANGLE_FAN.png)
+
+**We can also draw the a solid circle by replacing \_GL_LINE_LOOP with \_GL_TRIANGLE_FAN in \_GL_LINE_LOOP section example.**
+
+
+# Exercises
+1. You already know that I've not discussed about **\_GL_QUADS, \_GL_QUAD_STRIP and \_GL_POLYGON**. Your homework is to check them out and have fun with them!
 
 ***
-_This page is in development. Keep coming, you might eventually see something new!_
+
