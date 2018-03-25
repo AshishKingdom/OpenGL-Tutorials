@@ -3,6 +3,7 @@
 ## Introduction
 ***
 In this section, we are going to explore colors and blending in OpenGL. So, be ready!
+
 ***
 ## Colors
 Going back to [My First Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/) section, we have the following code at the end -
@@ -53,6 +54,8 @@ Run the code, and you will have the following output -
 ![OpenGL Triangle With Colors](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/colors/color-triangle.png)
 
 What? You might be thinking that we have just added 3 colors but we are getting rainbow of colors in our triangle! This color palette is because of fragment interpolation in the [fragment shader](https://www.opengl.org/wiki/Fragment_Shader).
+
+In this way, you can give variety of colors to your object/shapes before each vertices between `_glBegin()` and `_glEnd()`.
 
 ## Transparency
 Just like we have `_RGBA()` in QB64 for alpha with color, OpenGL too provides us `_glColor4f()` to work with alpha based colors.
