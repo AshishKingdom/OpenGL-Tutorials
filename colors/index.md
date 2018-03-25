@@ -2,8 +2,7 @@
 ***
 ## Introduction
 ***
-In this section, we are going to explore colors and blending in OpenGL. So, be ready!
-
+In this section, we are going to explore colors and blending in OpenGL. So, be ready.
 ***
 ## Colors
 Going back to [My First Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/) section, we have the following code at the end -
