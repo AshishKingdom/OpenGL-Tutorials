@@ -103,7 +103,7 @@ Now, we will learn how to combine the pixels to get blending effect. This proces
 - **Source Color** :- The color of the pixel which is being drawn.
 - **Destination Color** :- The color of the pixel which is already drawn and is stored in the buffer/memory.
 
-The color is obtained by the combination is the sum of products between the its associated factor and this is what we call
+The color is the sum of products between the its associated factor and this is what we call
 *Blending Formulae*.
 
 _finalColor = sourceColor * sourceFactor + destColor * destFactor_
@@ -183,7 +183,7 @@ If you run the code above, you will have the following output-
 
 ![Colorful Circle with Blending](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/colors/blend-circles.png)
 
-This is exactly working according to blending formulae. After drawing the green circle, srcG = 0, and srcR = srcB = srcA =0.
+This is exactly working according to blending formulae. After drawing the green circle, srcG = 1, and srcR = srcB = srcA =0.
 This gets multiplied with `_GL_ONE` constant, that is by 1. The red circle color, which is drawn previosly will be acting as destination color. It wil also get multiplied with `_GL_ONE` constant, that is by 1. On adding red and green color, we will get yellow color. And the same process is done with blue circle. This is exactly what happened in our output.
 
 The main advantage of Blending function is masking, which we will learn later.
