@@ -194,7 +194,18 @@ The main advantage of Blending function is masking, which we will learn later.
 - \_glBlendColor
 
 ## Exercises
+1. Using `_glColor3f()`, modify your code to get following output -
 
+![Gradient Box](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/colors/exercise-1.png)
 
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/colors/solution-1/)
+
+2. Using `_glColor4f()` and Blending, modify your code to get the following output -
+
+![Fading Circles](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/colors/exercise-2.gif)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/colors/solution-2/)
+
+3. Experiment with `_glBlendFunc()` with different **GL Constants**.
 ***
 _This page is in development. Keep coming, you might eventually see something new!_
