@@ -186,7 +186,7 @@ If you run the code above, you will have the following output-
 This is exactly working according to blending formulae. After drawing the green circle, srcG = 1, and srcR = srcB = srcA =0.
 This gets multiplied with `_GL_ONE` constant, that is by 1. The red circle color, which is drawn previosly will be acting as destination color. It wil also get multiplied with `_GL_ONE` constant, that is by 1. On adding red and green color, we will get yellow color. And the same process is done with blue circle. This is exactly what happened in our output.
 
-The main advantage of Blending function is masking, which we will learn later.
+The main advantage of Blending function is masking, which we will learn later. **For now, go and solve exercises!**
 
 ## Keywords you have learned about -
 - \_glColor4f
@@ -208,4 +208,4 @@ The main advantage of Blending function is masking, which we will learn later.
 
 3. Experiment with `_glBlendFunc()` with different **GL Constants**.
 ***
-_This page is in development. Keep coming, you might eventually see something new!_
+
