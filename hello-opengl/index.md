@@ -106,9 +106,9 @@ This will produce the following output -
 ***
 
 ## Keywords you have learned about
-- \_glViewPort()
-- \_glClearColor()
-- \_glClear()
+- [\_glViewPort()](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glViewport.xml)
+- [\_glClearColor()](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glClearColor.xml)
+- [\_glClear()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glClear.xml)
 
 ***
 
