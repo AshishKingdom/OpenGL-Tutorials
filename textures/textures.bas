@@ -15,7 +15,7 @@ SUB _GL ()
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
 
-        STATIC myTex 'our texture handle
+        STATIC myTex AS LONG'our texture handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
         _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
 
