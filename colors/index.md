@@ -189,9 +189,9 @@ This gets multiplied with `_GL_ONE` constant, that is by 1. The red circle color
 The main advantage of Blending function is masking, which we will learn later. **For now, go and solve exercises!**
 
 ## Keywords you have learned about -
-- \_glColor4f
-- \_glBlendFunc
-- \_glBlendColor
+- [\_glColor4f](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glColor.xml)
+- [\_glBlendFunc](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glBlendFunc.xml)
+- [\_glBlendColor](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glBlendColor.xml)
 
 ## Exercises
 1. Using `_glColor3f()`, modify your code to get following output -
