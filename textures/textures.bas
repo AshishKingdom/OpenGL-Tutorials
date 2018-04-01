@@ -1,4 +1,4 @@
-```vb
+
 _TITLE "Learning OpenGL" 'giving title to your window
 SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
 
@@ -61,4 +61,3 @@ SUB _GL ()
 END SUB
 
 
-```
