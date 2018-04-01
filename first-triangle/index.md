@@ -133,11 +133,11 @@ And our output will look like this -
 
 ***
 # Keywords you have learned about -
-- \_glBegin()
-- \_glVertex2f(), \_glVertex2i(), \_glVertex2d()
-- \_glEnd()
-- \_glFlush()
-- \_glColor3f()
+- [\_glBegin()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glBegin.xml)
+- [\_glVertex2f()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glVertex.xml)
+- [\_glEnd()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glBegin.xml)
+- [\_glFlush()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glFlush.xml)
+- [\_glColor3f()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glColor.xml)
 
 ***
 # Exercise
