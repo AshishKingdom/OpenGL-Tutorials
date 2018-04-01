@@ -168,7 +168,7 @@ Now, we will specify texture coordinate with the help of `_glTexCoord2f()`. It h
 ...
 ```
 
-The full source code is [here](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/code-0.md). Run the program and you will have the following output -
+The full source code is [here](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/textures.bas). Run the program and you will have the following output -
 
 ![Textured Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/textured_triangle.png)
 
