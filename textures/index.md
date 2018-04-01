@@ -1,9 +1,13 @@
 # Textures
+
 ***
+
 ## Introduction
 Welcome to texures section of OpenGL Tutorials. In this section, we will be learning the way to give texture to objects.
 We will also learn about different texture filtering, texture wrapping and masking.
+
 ***
+
 ## Texture Coordinates
 In order to map texture to our triangle, we need to tell each vertex of the triangle which part of the texture it corresponds to. 
 Therefore, each vertex must have **texture coordinates**, then only it will map the texture image to our triangle. 
@@ -84,5 +88,118 @@ We created a `_MEM` type variable 'm' and used `_MEMIMAGE()` to get a data block
 - The last argument is the actual image data. (`m.OFFSET`)
 
 After this, we free our image data block using `_MEM`.
+
+### Texture Wrapping
+
+Texture coordinates are usually between 0 and 1, but what happens when we specify above this range? The default behaviour of OpenGL is to repeat the texture. However, there are different options -
+- `_GL_REPEAT` : Repeats the texture.
+- `_GL_MIRRORED_REPEAT` : Similar to `_GL_REPEAT` but mirrors the texture with each repeat.
+- `_GL_CLAMP_TO_EDGE` : It clamps the coordinate between 1 and 0.
+
+Each of this property can be set per coordinate axis (S and T (and R for 3D), just like X, Y, Z) with the help of `_glTexParameteri()` command. The first arguement is for texture type. The second argument is property which we are going to set and the last argument is the value for the property.
+
+```vb
+...
+    _MEMFREE m
+    'set our texture wrapping
+    _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_WRAP_S, _GL_REPEAT
+    _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_WRAP_T, _GL_REPEAT
+...
+```
+
+<div class="hint-box">
+    The default texture wrapping method is <b>_GL_REPEAT</b>. So, if you are not going to use other wrapping methods, you can leave this step.
+</div>
+
+### Texture Filtering
+
+OpenGL offers us some texture filtering, 2 of them are -
+- `_GL_LINEAR` : In this, OpenGL apply linear filtering to image and make image look smoother.
+- `_GL_NEAREST` : In this, OpenGL select the pixel which centers closest to texure coordinate.
+
+The image below show us the difference between `_GL_LINEAR` and `_GL_NEAREST` on **QB64 Bee**.
+
+![Types of Texture Filtering](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/filtering_result.png)
+
+Texture filtering too, can be set using `_glTexParameteri()`. Texture filtering are set for magnifying and minifying operation.
+
+```vb
+...
+    'set our texture wrapping
+    _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_WRAP_S, _GL_REPEAT
+    _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_WRAP_T, _GL_REPEAT
+
+    'set out texture filtering
+    _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MAG_FILTER, _GL_LINEAR 'for scaling up
+    _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MIN_FILTER, _GL_NEAREST 'for scaling down
+
+END IF
+...
+```
+
+Just like for blending, texture need also to be enable by `_glEnable()`. I've change `_glClearColor()` to black.
+
+```vb
+...
+    END IF
+
+    _glEnable _GL_TEXTURE_2D 'enable texture mapping
+
+    _glClearColor 0, 0, 0, 1 'set color to solid black
+    _glClear _GL_COLOR_BUFFER_BIT
+...
+```
+
+Now, we will specify texture coordinate with the help of `_glTexCoord2f()`. It has 2 argument, which just take value of S and T.
+
+```vb
+...
+    _glBegin _GL_TRIANGLES
+
+    _glTexCoord2f 0.5, 1
+    _glVertex2f 0, 1
+
+    _glTexCoord2f 0, 0
+    _glVertex2f -1, -1
+
+    _glTexCoord2f 1, 0
+    _glVertex2f 1, -1
+    _glEnd
+...
+```
+
+The full source code is [here](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/code-0.md). Run the program and you will have the following output -
+
+![Textured Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/textured_triangle.png)
+
+Congrats! You learned about textures! You are also allowed to set color along with texture coordinates!
+
+```vb
+...
+    _glBegin _GL_TRIANGLES
+
+    _glColor3f 1, 0, 0
+    _glTexCoord2f 0.5, 1
+    _glVertex2f 0, 1
+
+    _glColor3f 0, 1, 0
+    _glTexCoord2f 0, 0
+    _glVertex2f -1, -1
+
+    _glColor3f 0, 0, 1
+    _glTexCoord2f 1, 0
+    _glVertex2f 1, -1
+
+    _glEnd
+...
+```
+
+This will have the following output -
+
+![Colored Textured Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/colored_textured_triangle.png)
+
+## Masking
+
 ***
+
 _This page is in development. Keep coming, you might eventually see something new!_
