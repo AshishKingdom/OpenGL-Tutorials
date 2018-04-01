@@ -52,7 +52,7 @@ Textures are reference with an ID, so we have declare a STATIC variable for it i
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
 
-        STATIC myTex 'our textyre handle
+        STATIC myTex AS LONG'our textyre handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
         _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
 
@@ -60,11 +60,15 @@ Textures are reference with an ID, so we have declare a STATIC variable for it i
 ```
 We use `_glGenTextures()` to generate texture IDs. The first agruement is for number of textures to be generated which is going to store in the second array arguement. We can usually pass a unsigned integer variable as its second arguement when generating only one texture ID and **We need to pass this second argument with \_OFFSET()**. After this, we select our texture with the help of `_glBindTexture()`. The first arguement is texture type, which is `_GL_TEXTURE_2D` for our image, and the second arguement is for our texture ID.
 
+<div class="warning-box">
+    <b>Always remember that the texture handle should be a LONG type</b> (QB64 default data type is SINGLE). Using floating point value for texture handle can give you unexpected output. It will also lead to transfer of image data to another texture handle.
+</div>
+
 Now, our next step is to give image data to our texture
 
 ```vb
 ...
-    STATIC myTex 'our texture handle
+    STATIC myTex AS LONG'our texture handle
     _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
     _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
 
@@ -199,6 +203,114 @@ This will have the following output -
 ![Colored Textured Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/colored_textured_triangle.png)
 
 ## Masking
+
+We can combine our knowledge of blending and textures to mask on pictures and get some awesome effect. For this, we need two images. The one will be mask, which will define which pixel to keep and remove. We will be using [this mask](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/mask.png).
+
+![Masking](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/masking.png)
+
+The above effect can be easily achieved by drawing the image first, then calling `_glBlendFunc _GL_ZERO, _GL_SRC_COLOR` and then drawing our mask. Here's the code -
+
+```vb
+_TITLE "Learning OpenGL" 'giving title to your window
+SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
+
+'This is our main loop
+DO
+    _LIMIT 40 'Adding this will prevent high cpu usage.
+LOOP
+
+SUB _GL ()
+    STATIC glInit
+    'Here we'll put our OpenGL commands!
+    IF NOT glInit THEN
+        glInit = -1
+        _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
+        img& = _LOADIMAGE("texture_2.jpg")
+
+        STATIC myTex AS LONG, myMask AS LONG 'our texture handle
+        _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
+        _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
+
+        DIM m AS _MEM
+        m = _MEMIMAGE(img&) 'we will take data from our image using _MEM
+
+        'giving image data to our texture handle
+        _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(img&), _HEIGHT(img&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
+
+        _MEMFREE m
+        'set out texture filtering
+        _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MAG_FILTER, _GL_LINEAR 'for scaling up
+        _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MIN_FILTER, _GL_NEAREST 'for scaling down
+
+        msk& = _LOADIMAGE("mask.png")
+        _glGenTextures 1, _OFFSET(myMask)
+
+        _glBindTexture _GL_TEXTURE_2D, myMask 'select our texture handle
+
+        m = _MEMIMAGE(msk&) 'we will take data from our image using _MEM
+
+        'giving image data to our texture handle
+        _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(msk&), _HEIGHT(msk&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
+
+        _MEMFREE m
+
+        'set out texture filtering
+        _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MAG_FILTER, _GL_LINEAR 'for scaling up
+        _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MIN_FILTER, _GL_NEAREST 'for scaling down
+
+
+    END IF
+
+    _glEnable _GL_TEXTURE_2D 'enable texture mapping
+    _glEnable _GL_BLEND 'enable blending
+
+    _glClearColor 0, 0, 0, 1 'set color to solid black
+    _glClear _GL_COLOR_BUFFER_BIT
+
+
+    _glBindTexture _GL_TEXTURE_2D, myTex
+    _glBegin _GL_QUADS
+    _glTexCoord2f 0, 1
+    _glVertex2f -1, 1
+    _glTexCoord2f 1, 1
+    _glVertex2f 1, 1
+    _glTexCoord2f 1, 0
+    _glVertex2f 1, -1
+    _glTexCoord2f 0, 0
+    _glVertex2f -1, -1
+    _glEnd
+
+    _glBlendFunc _GL_ZERO, _GL_SRC_COLOR
+
+    _glBindTexture _GL_TEXTURE_2D, myMask
+    _glBegin _GL_QUADS
+    _glTexCoord2f 0, 1
+    _glVertex2f -1, 1
+    _glTexCoord2f 1, 1
+    _glVertex2f 1, 1
+    _glTexCoord2f 1, 0
+    _glVertex2f 1, -1
+    _glTexCoord2f 0, 0
+    _glVertex2f -1, -1
+    _glEnd
+
+
+    _glFlush
+END SUB
+
+```
+
+The above code has the following output -
+
+![Masking with irregular shape](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/masking_2.png)
+
+**This section now ends here. Go through the exercises and solve them.**
+
+## Keywords You have learn about -
+- [\_glGenTextures()](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glGenTextures.xml)
+- [\_glBindTexture()](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glBindTexture.xml)
+- [\_glTexParameteri()](https://www.khronos.org/registry/OpenGL-Refpages/es2.0/xhtml/glTexParameter.xml)
+- [\_glTexCoord2f()](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTexCoord.xml)
 
 ***
 
