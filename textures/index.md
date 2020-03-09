@@ -26,7 +26,7 @@ We specify 3 texture coordinates for our triangle for its 3 vertices. For the to
 
 ## Setting Up Texture for Our Triangle
 
-We will be using [this image](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/texture_2.jpg) as texture for our triangle. We need to do some things once in SUB \_GL(). For example, we have to load our texture and set its different properties. We can also to put our `_glViewPort()` in the procedure, as it doesn't need to be called again & again, unless the window size has change.
+We will be using [this image](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/texture_2.jpg) as texture for our triangle. We need to do some things once in SUB \_GL(). For example, we have to load our texture and set its different properties. We can also to put our `_glViewPort()` in the procedure, as it doesn't need to be called again & again, unless the window size has change. We have to vertically flip the image loaded in QB64. This is done as OpenGL store image data in reverse order. 
 
 ```vb
 ...
@@ -38,6 +38,8 @@ SUB _GL ()
         glInit = -1 
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
+		img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
+		_PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
     END IF
     
     ...
@@ -51,7 +53,9 @@ Textures are reference with an ID, so we have declare a STATIC variable for it i
         glInit = -1
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
-
+		img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
+		_PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
+		
         STATIC myTex AS LONG'our textyre handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
         _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
@@ -91,7 +95,7 @@ We created a `_MEM` type variable 'm' and used `_MEMIMAGE()` to get a data block
 - The seventh argument specifies the data format of our loaded image. This must be `_GL_BGRA_EXT` for all QB64 loaded image.
 - The last argument is the actual image data. (`m.OFFSET`)
 
-After this, we free our image data block using `_MEM`.
+After this, we free our image data block using `_MEMFREE`.
 
 ### Texture Wrapping
 
@@ -225,34 +229,43 @@ SUB _GL ()
     IF NOT glInit THEN
         glInit = -1
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
-        img& = _LOADIMAGE("texture_2.jpg")
+        img& = _LOADIMAGE("OpenGL-Tutorials/images/textures/texture_2.jpg")
+        img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
+        _PUTIMAGE (0, _HEIGHT)-(_WIDTH, 0), img&, img2&
 
         STATIC myTex AS LONG, myMask AS LONG 'our texture handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
         _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
 
         DIM m AS _MEM
-        m = _MEMIMAGE(img&) 'we will take data from our image using _MEM
+        m = _MEMIMAGE(img2&) 'we will take data from our image using _MEM
 
         'giving image data to our texture handle
         _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(img&), _HEIGHT(img&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
 
         _MEMFREE m
+        _FREEIMAGE img&
+        _FREEIMAGE img2&
         'set out texture filtering
         _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MAG_FILTER, _GL_LINEAR 'for scaling up
         _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MIN_FILTER, _GL_NEAREST 'for scaling down
 
-        msk& = _LOADIMAGE("mask.png")
+        msk& = _LOADIMAGE("OpenGL-Tutorials/images/textures/mask.png")
+        img2& = _NEWIMAGE(_WIDTH(msk&), _HEIGHT(msk&), 32)
+        _PUTIMAGE (0, _HEIGHT)-(_WIDTH, 0), msk&, img2&
+
         _glGenTextures 1, _OFFSET(myMask)
 
         _glBindTexture _GL_TEXTURE_2D, myMask 'select our texture handle
 
-        m = _MEMIMAGE(msk&) 'we will take data from our image using _MEM
+        m = _MEMIMAGE(img2&) 'we will take data from our image using _MEM
 
         'giving image data to our texture handle
         _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(msk&), _HEIGHT(msk&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
 
         _MEMFREE m
+        _FREEIMAGE msk&
+        _FREEIMAGE img2&
 
         'set out texture filtering
         _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MAG_FILTER, _GL_LINEAR 'for scaling up
@@ -297,6 +310,7 @@ SUB _GL ()
 
     _glFlush
 END SUB
+
 
 ```
 

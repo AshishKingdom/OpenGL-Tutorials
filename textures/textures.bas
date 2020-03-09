@@ -14,16 +14,18 @@ SUB _GL ()
         glInit = -1
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
+		img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
+		_PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
 
         STATIC myTex AS LONG'our texture handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
         _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
 
         DIM m AS _MEM
-        m = _MEMIMAGE(img&) 'we will take data from our image using _MEM
+        m = _MEMIMAGE(img2&) 'we will take data from our image using _MEM
 
         'giving image data to our texture handle
-        _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(img&), _HEIGHT(img&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
+        _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(img2&), _HEIGHT(img2&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
 
         _MEMFREE m
 
@@ -43,7 +45,7 @@ SUB _GL ()
     _glClearColor 0, 0, 0, 1 'set color to solid black
     _glClear _GL_COLOR_BUFFER_BIT
 
-
+	_glBindTexture _GL_TEXTURE_2D, myTex
     _glBegin _GL_TRIANGLES
 
     _glTexCoord2f 0.5, 1

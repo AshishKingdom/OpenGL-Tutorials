@@ -207,5 +207,3 @@ The main advantage of Blending function is masking, which we will learn later. *
 [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/colors/solution-2/)
 
 3. Experiment with `_glBlendFunc()` with different **GL Constants**.
-***
-
