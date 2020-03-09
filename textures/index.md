@@ -53,8 +53,8 @@ Textures are reference with an ID, so we have declare a STATIC variable for it i
         glInit = -1
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
-		img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
-		_PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
+        img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
+         _PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
 		
         STATIC myTex AS LONG'our textyre handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
