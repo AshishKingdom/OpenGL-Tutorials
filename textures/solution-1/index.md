@@ -1,4 +1,4 @@
-
+```vb
 _TITLE "Learning OpenGL" 'giving title to your window
 SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
 
@@ -46,16 +46,17 @@ SUB _GL ()
     _glClear _GL_COLOR_BUFFER_BIT
 
     _glBindTexture _GL_TEXTURE_2D, myTex
-    _glBegin _GL_TRIANGLES
+    _glBegin _GL_QUADS 'simply draw a quad
 
-    _glTexCoord2f 0.5, 1
-    _glVertex2f 0, 1
-
-    _glTexCoord2f 0, 0
-    _glVertex2f -1, -1
-
+    _glTexCoord2f 0, 1
+    _glVertex2f -0.5, 0.5 'top-left
+    _glTexCoord2f 1, 1
+    _glVertex2f 0.5, 0.5 'top-right
     _glTexCoord2f 1, 0
-    _glVertex2f 1, -1
+    _glVertex2f 0.5, -0.5 'bottom right
+    _glTexCoord2f 0, 0
+    _glVertex2f -0.5, -0.5 'bottom left
+
     _glEnd
 
 
@@ -63,3 +64,4 @@ SUB _GL ()
 END SUB
 
 
+```

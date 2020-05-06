@@ -38,8 +38,8 @@ SUB _GL ()
         glInit = -1 
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
-		img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
-		_PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
+        img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
+        _PUTIMAGE (0,_HEIGHT(img&) - 1)-(_WIDTH(img&) - 1, 0),img&,img2&
     END IF
     
     ...
@@ -54,7 +54,7 @@ Textures are reference with an ID, so we have declare a STATIC variable for it i
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
         img& = _LOADIMAGE("texture_2.jpg")
         img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
-         _PUTIMAGE (0,_HEIGHT - 1)-(_WIDTH - 1, 0),img&,img2&
+         _PUTIMAGE (0,_HEIGHT(img&) - 1)-(_WIDTH(img&) - 1, 0),img&,img2&
 		
         STATIC myTex AS LONG'our textyre handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
@@ -158,10 +158,11 @@ Just like for blending, texture need also to be enable by `_glEnable()`. I've ch
 ...
 ```
 
-Now, we will specify texture coordinate with the help of `_glTexCoord2f()`. It has 2 argument, which just take value of S and T.
+Now, we select our texture with the help of `_glBindTexture()`. After that, we specify texture coordinate with the help of `_glTexCoord2f()`. It has 2 argument, which just take value of S and T.
 
 ```vb
 ...
+    _glBindTexture _GL_TEXTURE_2D, myTex
     _glBegin _GL_TRIANGLES
 
     _glTexCoord2f 0.5, 1
@@ -175,6 +176,12 @@ Now, we will specify texture coordinate with the help of `_glTexCoord2f()`. It h
     _glEnd
 ...
 ```
+
+<div class="hint-box">
+    Using  <b>_glBindTexture _GL_TEXTURE_2D, 0</b> will prevent the objects from having textures of previously selected
+    texture handle. You can use it if you want to draw an object in which textures is not required. Otherwise, the object will
+    automatically get the color of (0,0) pixel of your previously selected textue handle.
+</div>
 
 The full source code is [here](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/textures.bas). Run the program and you will have the following output -
 
@@ -229,9 +236,9 @@ SUB _GL ()
     IF NOT glInit THEN
         glInit = -1
         _glViewport 0, 0, _WIDTH, _HEIGHT 'here _WIDTH() and _HEIGHT() gives the width and height of our window.
-        img& = _LOADIMAGE("OpenGL-Tutorials/images/textures/texture_2.jpg")
+        img& = _LOADIMAGE("texture_2.jpg")
         img2& = _NEWIMAGE(_WIDTH(img&), _HEIGHT(img&), 32)
-        _PUTIMAGE (0, _HEIGHT)-(_WIDTH, 0), img&, img2&
+        _PUTIMAGE (0, _HEIGHT(img&))-(_WIDTH(img&), 0), img&, img2&
 
         STATIC myTex AS LONG, myMask AS LONG 'our texture handle
         _glGenTextures 1, _OFFSET(myTex) 'generate our texture handle
@@ -250,7 +257,7 @@ SUB _GL ()
         _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MAG_FILTER, _GL_LINEAR 'for scaling up
         _glTexParameteri _GL_TEXTURE_2D, _GL_TEXTURE_MIN_FILTER, _GL_NEAREST 'for scaling down
 
-        msk& = _LOADIMAGE("OpenGL-Tutorials/images/textures/mask.png")
+        msk& = _LOADIMAGE("mask.png")
         img2& = _NEWIMAGE(_WIDTH(msk&), _HEIGHT(msk&), 32)
         _PUTIMAGE (0, _HEIGHT)-(_WIDTH, 0), msk&, img2&
 
@@ -318,6 +325,8 @@ The above code has the following output -
 
 ![Masking with irregular shape](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/masking_2.png)
 
+Of course, if we had used `_glBlendFunc _GL_DST_COLOR, _GL_ZERO` in our masking code, the result would have been same (Can you reason out why?).
+
 **This section now ends here. Go through the exercises and solve them.**
 
 ## Keywords You have learn about -
@@ -328,4 +337,29 @@ The above code has the following output -
 
 ***
 
-_This page is in development. Keep coming, you might eventually see something new!_
+## Exercises
+1. Try to get the following output **without** using **masking technique**.
+
+![Square With Texture](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/exercise-1.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-1/)
+
+2. Try to get the following output **without** using **masking technique**.
+
+![Circle With Texture](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/exercise-2.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-2/)
+
+3. Try to get following output **using masking technique**.
+
+![Swap Masking](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/exercise-3.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-3/)
+
+4. Try to get the following output **using masking technique**.
+
+![Pattern Masking](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/exercise-4.png)
+
+[Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-4/)
+
+5. Try to do question 1 and 2 **masking technique**.

@@ -1,4 +1,4 @@
-
+```vb
 _TITLE "Learning OpenGL" 'giving title to your window
 SCREEN _NEWIMAGE(600, 600, 32) 'creating a window of 600x600
 
@@ -46,20 +46,17 @@ SUB _GL ()
     _glClear _GL_COLOR_BUFFER_BIT
 
     _glBindTexture _GL_TEXTURE_2D, myTex
-    _glBegin _GL_TRIANGLES
+    _glBegin _GL_TRIANGLE_FAN
 
-    _glTexCoord2f 0.5, 1
-    _glVertex2f 0, 1
+    FOR i = 0 TO _PI(2) STEP 0.1
+        _glTexCoord2f 0.5 + COS(i) * 0.5, 0.5 + SIN(i) * 0.5 'mapimg the values between 0 and 1 for texture coordinates
+        _glVertex2f COS(i) * 0.8, SIN(i) * 0.8 'drawing circle having radius 0.8 units
+    NEXT
 
-    _glTexCoord2f 0, 0
-    _glVertex2f -1, -1
-
-    _glTexCoord2f 1, 0
-    _glVertex2f 1, -1
     _glEnd
 
 
     _glFlush
 END SUB
 
-
+```
