@@ -338,28 +338,28 @@ Of course, if we had used `_glBlendFunc _GL_DST_COLOR, _GL_ZERO` in our masking 
 ***
 
 ## Exercises
-1. Try to get the following output **without** using **masking technique**.
+- Try to get the following output **without** using **masking technique**.
 
 ![Square With Texture](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/textures/exercise-1.png)
 
 [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-1/)
 
-2. Try to get the following output **without** using **masking technique**.
+- Try to get the following output **without** using **masking technique**.
 
 ![Circle With Texture](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/textures/exercise-2.png)
 
 [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-2/)
 
-3. Try to get following output **using masking technique**.
+- Try to get following output **using masking technique**.
 
 ![Swap Masking](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/textures/exercise-3.png)
 
 [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-3/)
 
-4. Try to get the following output **using masking technique**.
+- Try to get the following output **using masking technique**.
 
 ![Pattern Masking](https://raw.githubusercontent.com/AshishKingdom/OpenGL-Tutorials/gh-pages/images/textures/exercise-4.png)
 
 [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-4/)
 
-5. Try to do question 1 and 2 **masking technique**.
+- Try to do question 1 and 2 **masking technique**.
