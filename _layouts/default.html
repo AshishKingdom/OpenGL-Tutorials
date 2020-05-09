@@ -114,12 +114,12 @@
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/2d-transformation/",
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/going-3d/",
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/3d-shapes/",
-                       "https://ashishkingdom.github.io/OpenGL-Tutorials/3d-transformation/".
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/3d-transformation/",
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/camera/",
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/lights/",
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/materials/",
                        "https://ashishkingdom.github.io/OpenGL-Tutorials/advance-opengl/",
-                       "https://ashishkingdom.github.io/OpenGL-Tutorials/about-me.",
+                       "https://ashishkingdom.github.io/OpenGL-Tutorials/about-me/",
                        ];
       $(document).ready(function() {
          $("#top-button").click(function() {
@@ -133,12 +133,12 @@
         if(window.location != contentList[0])$(".pre_btn").fadeIn();
         if(window.location != contentList[13])$(".nxt_btn").fadeIn();
         $(".pre_btn").click(function() {
-            for(var i=0;i<13;i++){
+            for(var i=0;i<14;i++){
               if(window.location == contentList[i])window.location=contentList[i-1];
             }
           });
         $(".nxt_btn").click(function() {
-          for(var i=0;i<13;i++){
+          for(var i=0;i<14;i++){
             if(window.location ==  contentList[i])window.location=contentList[i+1];
           }
         });
