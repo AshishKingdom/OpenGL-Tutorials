@@ -93,6 +93,7 @@ We created a `_MEM` type variable 'm' and used `_MEMIMAGE()` to get a data block
 - The fourth & fifth argument specifies the width and height of our image.
 - The sixth argument specifies the border of our image. **It must be 0.**
 - The seventh argument specifies the data format of our loaded image. This must be `_GL_BGRA_EXT` for all QB64 loaded image.
+- The 8th arguemnt specifies the data type of our pixel data. It usually `_GL_UNSIGNED_BYTE` for all QB64 loaded image.
 - The last argument is the actual image data. (`m.OFFSET`)
 
 After this, we free our image data block using `_MEMFREE`.
