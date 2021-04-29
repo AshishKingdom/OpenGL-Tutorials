@@ -4,12 +4,12 @@
 
 ## Introduction
 Welcome to texures section of OpenGL Tutorials. In this section, we will be learning the way to give texture to objects.
-We will also learn about different texture filtering, texture wrapping and masking.
+We will also learn about the different texture filtering, texture wrapping and masking.
 
 ***
 
 ## Texture Coordinates
-In order to map texture to our triangle, we need to tell each vertex of the triangle which part of the texture it corresponds to. 
+In order to map texture to our triangle, we need to link each vertex of the triangle to which part of the texture it corresponds to. 
 Therefore, each vertex must have **texture coordinates**, then only it will map the texture image to our triangle. 
 
 ![Texture Coordinates Diagram](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/tex_coord_1.png)
@@ -22,11 +22,11 @@ The texture coordinates for our triangle with corresponding vertices is shown be
 
 ![Texture Coordinate For Our Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/tex_coord_2.png)
 
-We specify 3 texture coordinates for our triangle for its 3 vertices. For the top vertex, the texture coordiante will be (0.5,1). For bottom left and botoom right, the texture coordinate will be (0,0) and (1,0).
+We specify 3 texture coordinates of our triangle for its 3 vertices. For the top vertex, the texture coordiante will be (0.5,1). For bottom left and bottom right, the texture coordinate will be (0,0) and (1,0).
 
 ## Setting Up Texture for Our Triangle
 
-We will be using [this image](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/texture_2.jpg) as texture for our triangle. We need to do some things once in SUB \_GL(). For example, we have to load our texture and set its different properties. We can also to put our `_glViewPort()` in the procedure, as it doesn't need to be called again & again, unless the window size has change. We have to vertically flip the image loaded in QB64. This is done as OpenGL store image data in reverse order. 
+We will be using [this image](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/texture_2.jpg) as texture for our triangle. We need to do some things once in SUB \_GL(). For example, we have to load our texture and set its different properties. We can also put our `_glViewPort()` in the procedure, as it doesn't need to be called again & again, unless the window size has changed. We have to vertically flip the image loaded in QB64. This is done as OpenGL store image data in reverse order. 
 
 ```vb
 ...
@@ -45,7 +45,7 @@ SUB _GL ()
     ...
 ```
 
-Textures are reference with an ID, so we have declare a STATIC variable for it inside \_GL().
+Textures are reference with an ID, so we have to declare a STATIC variable for it inside \_GL().
 
 ```vb
 ...
@@ -62,7 +62,7 @@ Textures are reference with an ID, so we have declare a STATIC variable for it i
 
 ...
 ```
-We use `_glGenTextures()` to generate texture IDs. The first agruement is for number of textures to be generated which is going to store in the second array arguement. We can usually pass a unsigned integer variable as its second arguement when generating only one texture ID and **We need to pass this second argument with \_OFFSET()**. After this, we select our texture with the help of `_glBindTexture()`. The first arguement is texture type, which is `_GL_TEXTURE_2D` for our image, and the second arguement is for our texture ID.
+We use `_glGenTextures()` to generate texture IDs. The first agruement is for number of textures to be generated which is going to store in the second array argument. We can usually pass a unsigned integer variable as its second arguement when generating only one texture ID and **We need to pass this second argument with \_OFFSET()**. After this, we select our texture with the help of `_glBindTexture()`. The first argument is texture type, which is `_GL_TEXTURE_2D` for our image, and the second argument is for our texture ID.
 
 <div class="warning-box">
     <b>Always remember that the texture handle should be a LONG type</b> (QB64 default data type is SINGLE). Using floating point value for texture handle can give you unexpected output. It will also lead to transfer of image data to another texture handle.
@@ -87,13 +87,13 @@ Now, our next step is to give image data to our texture
 ```
 
 We created a `_MEM` type variable 'm' and used `_MEMIMAGE()` to get a data block for our image. After this, we use `_glTexImage2D()` to pass our image data -
-- The first argument specifies the texture target. Since our texture has `_GL_TEXTURE_2D` type, we set it to `_GL_TEXTURE_2D`. We can also set it to `_GL_TEXTURE_1D`, `_GL_TEXTURE_3D`, etc. depending on our requirement. 
+- The first argument specifies the texture target. Since our texture has `_GL_TEXTURE_2D` type, we set it to `_GL_TEXTURE_2D`. We can also set it to `_GL_TEXTURE_1D`, `_GL_TEXTURE_3D`, etc. depending on our requirements. 
 - The second argument specifies the mipmap level of texture.
-- The third argument specifies the format in which OpenGL will store the image data. We have set this to `_GL_RGB`. However, you can set it to `_GL_RGBA` if your image have some transparency.
+- The third argument specifies the format in which OpenGL will store the image data. We will set this to `_GL_RGB`. However, you can set it to `_GL_RGBA` if your image have some transparency.
 - The fourth & fifth argument specifies the width and height of our image.
 - The sixth argument specifies the border of our image. **It must be 0.**
 - The seventh argument specifies the data format of our loaded image. This must be `_GL_BGRA_EXT` for all QB64 loaded image.
-- The 8th arguemnt specifies the data type of our pixel data. It usually `_GL_UNSIGNED_BYTE` for all QB64 loaded image.
+- The 8th argument specifies the data type of our pixel data. It usually `_GL_UNSIGNED_BYTE` for all QB64 loaded image.
 - The last argument is the actual image data. (`m.OFFSET`)
 
 After this, we free our image data block using `_MEMFREE`.
@@ -105,7 +105,7 @@ Texture coordinates are usually between 0 and 1, but what happens when we specif
 - `_GL_MIRRORED_REPEAT` : Similar to `_GL_REPEAT` but mirrors the texture with each repeat.
 - `_GL_CLAMP_TO_EDGE` : It clamps the coordinate between 1 and 0.
 
-Each of this property can be set per coordinate axis (S and T (and R for 3D), just like X, Y, Z) with the help of `_glTexParameteri()` command. The first arguement is for texture type. The second argument is property which we are going to set and the last argument is the value for the property.
+Each of this property can be set per coordinate axis (S and T (and R for 3D), just like X, Y, Z) with the help of `_glTexParameteri()` command. The first argument is for texture type. The second argument is the property which we are going to set and the last argument is the value for the property.
 
 ```vb
 ...
@@ -146,7 +146,7 @@ END IF
 ...
 ```
 
-Just like for blending, texture need also to be enable by `_glEnable()`. I've change `_glClearColor()` to black.
+Just like we have discuss in blending section, texture need also to be enable by `_glEnable()`. I've change `_glClearColor()` to black.
 
 ```vb
 ...
@@ -326,7 +326,7 @@ The above code has the following output -
 
 ![Masking with irregular shape](https://ashishkingdom.github.io/OpenGL-Tutorials/images/textures/masking_2.png)
 
-Of course, if we had used `_glBlendFunc _GL_DST_COLOR, _GL_ZERO` in our masking code, the result would have been same (Can you reason out why?).
+Of course, if we had used `_glBlendFunc _GL_DST_COLOR, _GL_ZERO` in our masking code, the result would have been same (Can you find out, why?).
 
 **This section now ends here. Go through the exercises and solve them.**
 
@@ -363,4 +363,4 @@ Of course, if we had used `_glBlendFunc _GL_DST_COLOR, _GL_ZERO` in our masking 
 
 [Solution](https://ashishkingdom.github.io/OpenGL-Tutorials/textures/solution-4/)
 
-- Try to do question 1 and 2 **masking technique**.
+- Try to do question 1 and 2 **using masking technique**.
