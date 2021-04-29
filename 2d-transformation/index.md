@@ -54,7 +54,10 @@ End Sub
  ```
  
  This will produce the following output - 
+ 
+ 
  ![Output of program showing the approach #1 of translations](https://ashishkingdom.github.io/OpenGL-Tutorials/images/2d-transformation/translation_approach_1.png)
+ 
  
  **Notice how the triangle is slightly shifted towards top right corner.** Now suppose, your program have to render hundreds of objects,
 consisting of thousands of vertex and each object has to be rendered at different position. In such cases, adding constants in x-coordinate
@@ -163,7 +166,7 @@ Output -
 ![Output showing a way to reset origin using _glTranslatef()](https://ashishkingdom.github.io/OpenGL-Tutorials/images/2d-transformation/translation_approach_2.png)
 
 <div class="hint-box">
- You can also <b>_glLoadIdentity()</b> to reset the origin. But remember, using <b>_glLoadIdentity()</b> not only reset translate configuration, but 
+ You can also call <b>_glLoadIdentity()</b> to reset the origin. But remember, using <b>_glLoadIdentity()</b> not only reset translate configuration, but 
  it also reset configuration of rotations and scaling.
 </div>
 
