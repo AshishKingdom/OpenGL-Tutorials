@@ -13,9 +13,12 @@ We are now just one step behind to get into 3D. In this section, you are going t
  2. You can use the new keyword `_glTranslatef()`
 
 ### First Approach (Adding constant to coordinates)
+
+
  ![Diagram showing how adding constant can shift origin](https://ashishkingdom.github.io/OpenGL-Tutorials/images/2d-transformation/translate_diagram.png)
- We are going to take the code we had in [My First Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/) and modify it a 
- little bit.
+ 
+ 
+ We are going to take the code we had in [My First Triangle](https://ashishkingdom.github.io/OpenGL-Tutorials/first-triangle/) and modify it a little bit.
  
  ```vb
  _Title "Learning OpenGL" 'giving title to your window
@@ -105,8 +108,8 @@ End Sub
 If you run this code and you will notice that it also produce the same output as we had in *First Approach* section.
 
 <div class="warning-box">
-    <b>Never call `glTranslatef()` between `_glBegin()` and `_glEnd()`</b> Calling `_glTranslatef()` between these may cause error. Also,
-    `_glTranslatef()` is not effective when it is called between these two commands.
+    Never call <b>glTranslatef()</b> between <b>_glBegin()</b> and <b>_glEnd()</b> Calling <b>_glTranslatef()</b> between these may cause error. Also,
+    _<b>glTranslatef()</b> is not effective when it is called between these two commands.
 </div>
 
 Some of you might have a question - how can we reset origin again to (0,0,0) ? Well, you can just call `_glTranslatef()` again with same
@@ -160,7 +163,7 @@ Output -
 ![Output showing a way to reset origin using _glTranslatef()](https://ashishkingdom.github.io/OpenGL-Tutorials/images/2d-transformation/translation_approach_2.png)
 
 <div class="hint-box">
- You can also `_glLoadIdentity()` to reset the origin. But remember, using `_glLoadIdentity()` not only reset translate configuration, but 
+ You can also <b>_glLoadIdentity()</b> to reset the origin. But remember, using <b>_glLoadIdentity()</b> not only reset translate configuration, but 
  it also reset configuration of rotations and scaling.
 </div>
 
