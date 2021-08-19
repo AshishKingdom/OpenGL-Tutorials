@@ -77,7 +77,7 @@ Now, our next step is to give image data to our texture
     _glBindTexture _GL_TEXTURE_2D, myTex 'select our texture handle
 
     DIM m AS _MEM
-    m = _MEMIMAGE(img&) 'we will take data from our image using _MEM.
+    m = _MEMIMAGE(img2&) 'we will take data from our image using _MEM.
 
     'giving image data to our texture handle
     _glTexImage2D _GL_TEXTURE_2D, 0, _GL_RGB, _WIDTH(img&), _HEIGHT(img&), 0, _GL_BGRA_EXT, _GL_UNSIGNED_BYTE, m.OFFSET
